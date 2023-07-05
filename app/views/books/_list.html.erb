@@ -1,8 +1,6 @@
 <div class="col-md-3">
   <h1>User info</h1>
-    <% Book.all.each do |book| %>
-    <p><%= image_tag book.user.get_profile_image %></p>
-    <% end %>
+    <p><%= image_tag @user.get_profile_image %></p>
   <table class="table">
     <tbody><tr></tr>
       <tr>

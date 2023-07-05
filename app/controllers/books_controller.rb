@@ -27,13 +27,13 @@ class BooksController < ApplicationController
     @book = Book.find(params[:id])
     @user = @book.user
   end
-  
+
   def destroy
     book = Book.find(params[:id]) # 削除するPostImageレコードを取得
     book.destroy # レコードを削除
     redirect_to books_path # PostImageの一覧ページへのパス
   end
-  
+
   def update
     @book = Book.find(params[:id])
     if @book.update(book_params)
@@ -43,12 +43,12 @@ class BooksController < ApplicationController
       render :edit
     end
   end
-  
+
   def edit
     @book = Book.find(params[:id])
     @user = current_user
   end
-  
+
   private
 
   def book_params
