@@ -1,0 +1,30 @@
+<main>
+   <%= flash[:notice] %>
+
+  <div class="container">
+  <div class="row">
+     <%= render 'list', books: @books %>
+    <div class="col-md-8 offset-md-1">
+        <h1>Book detail</h1>
+        <table class="table">
+          <tbody>
+          <% @books.each do |book| %>
+            <tr>
+              <td>
+                  <p><%= image_tag book.user.get_profile_image(nil, nil) %></p>
+                  <br>
+                  <%= link_to @book.user.name, user_path(@book.user) %>
+              </td>
+              <td><%= @book.title %></td>
+              <td><%= @book.body %></td>
+              <% if @book.user == current_user %>
+                <td><%= link_to "Edit", edit_book_path(@book) %></td>
+                <td><%= link_to "Destroy", book_path(@book), method: :delete %></td>
+              <% end %>
+          <% end %>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+  </div>
+</main>

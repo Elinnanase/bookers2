@@ -1,0 +1,37 @@
+<div class="col-md-3">
+  <h1>User info</h1>
+    <% @books.each do |book| %>
+    <p><%= image_tag book.user.get_profile_image(nil, nil) %></p>
+    <% end %>
+  <table class="table">
+    <tbody><tr></tr>
+      <tr>
+        <th>Name</th>
+        <th><%= @user.name %></th>
+      </tr>
+      <tr>
+        <th>Introduction</th>
+        <th><%= @user.introduction %></th>
+      </tr>
+    </tbody>
+  </table>
+    <div class="row">
+      <%= link_to edit_user_path(@user), class: "btn btn-outline-secondary btn-block edit_user_117557" do %>
+        <i class="fas fa-user-cog" aria-hidden="true"></i>
+      <% end %>
+    </div>
+  <h1 class="mt-3">New book</h1>
+  <%= form_with model: @book, url: books_path, method: :post do |f| %>
+    <div class="form-group">
+      <label for="book_title">Title</label>
+      <p><%= f.text_field :title %></p>
+    </div>
+    <div class="form-group">
+      <label for="book_opinion">Opinion</label>
+      <p><%= f.text_area :body %></p>
+    </div>
+    <div class="form-group">
+      <%= f.submit 'Create book' %>
+    </div>
+      <% end %>
+  </div>
