@@ -1,7 +1,7 @@
 <div class="col-md-3">
   <h1>User info</h1>
-    <% @books.each do |book| %>
-    <p><%= image_tag book.user.get_profile_image(nil, nil) %></p>
+    <% Book.all.each do |book| %>
+    <p><%= image_tag book.user.get_profile_image %></p>
     <% end %>
   <table class="table">
     <tbody><tr></tr>

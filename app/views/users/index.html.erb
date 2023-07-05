@@ -17,16 +17,16 @@
             <tbody>
               <tr>
                 <% @users.each do |user| %>
-                <% @books.each do |book| %>
+                <% Book.all.each do |book| %>
                 <td>
-                  <p><%= image_tag book.user.get_profile_image(nil, nil) %></p>
+                  <p><%= image_tag book.user.get_profile_image %></p>
                 </td>
                 <td>
                   <p><%= user.name %></p>
                 </td>
                 <td>
                  <%= link_to "Show", user_path(user) %>
-                </td> 
+                </td>
               </tr>
               <% end %>
               <% end %>

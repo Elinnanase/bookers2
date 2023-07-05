@@ -23,10 +23,10 @@
             </tr>
           </thead>
           <tbody>
-              <% @books.each do |book| %>
+              <% Book.all.each do |book| %>
               <tr>
                 <td>
-                  <p><%= image_tag book.user.get_profile_image(nil, nil) %></p>
+                  <p><%= image_tag book.user.get_profile_image %></p>
                 </td>
                 <td><%= link_to book.title, book_path(book.id) %></td>
                 <td><%= book.body %></td>
